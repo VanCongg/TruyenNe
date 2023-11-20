@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* CSS để lùi container lên trên slide */
+    .slideshow-container {
+      max-width: 600px;
+      position: relative;
+      margin: auto;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .overlay-container {
+      position: absolute;
+      top: 50%; /* Đặt container ở giữa slide theo chiều dọc */
+      left: 50%; /* Đặt container ở giữa slide theo chiều ngang */
+      transform: translate(-50%, -50%); /* Dịch chuyển container để nó lùi lên trên slide */
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      color: white;
+    }
+  </style>
+  <title>Overlay Container on Slide</title>
+</head>
+<body>
+
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="mySlides">
+      <img src="/Asset/img/3ce9b41f65276c8ca9428ed7874db7f7.webp" alt="Slide 1">
+      <div class="overlay-container">
+        <p>Content inside the overlay container</p>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="mySlides">
+      <img src="/Asset/img/slide2.webp" alt="Slide 2">
+      <div class="overlay-container">
+        <p>Content inside the overlay container</p>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="mySlides">
+      <img src="/Asset/img/slide1.2.webp" alt="Slide 3">
+      <div class="overlay-container">
+        <p>Content inside the overlay container</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript để thực hiện chuyển đổi tự động giữa các slide
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2000); // Đổi slide mỗi 2 giây
+    }
+  </script>
+
+</body>
+</html>
